@@ -1,0 +1,8 @@
+.topbar {
+    position: sticky;
+    top: 0;
+}
+
+.logout {
+    margin-left: 50%;
+}

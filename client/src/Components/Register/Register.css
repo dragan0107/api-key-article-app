@@ -1,0 +1,66 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(120, 122, 122, 0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* opacity: 40%; */
+}
+
+.box {
+    height: 400px;
+    width: 400px;
+    background-color: lightgray;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.loginForm {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-right: 130px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+input {
+    border: none;
+    /* border-bottom: 1px solid black; */
+    background-color: rgb(102, 102, 102);
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.registerButton {
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    padding: 7px;
+    width: 100px;
+    margin-left: 50px;
+    background-color: rgb(218, 50, 50);
+}
+
+.closeButton {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 22px;
+    cursor: pointer;
+}
