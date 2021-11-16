@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Dashboard() {
+export default function Dashboard({setShowArt}) {
     return (
         <div>
             <div class="jumbotron">
@@ -14,7 +14,7 @@ export default function Dashboard() {
                 <a class="btn btn-primary btn-lg" href="#" role="button">Create API Key</a>
                 <br />
                 <br />
-                <a class="btn btn-secondary btn-lg" href="#" role="button">Add new article</a>
+                <a class="btn btn-secondary btn-lg" href="#" role="button" onClick={()=>setShowArt(true)}>Add new article</a>
             </div>
         </div>
     )

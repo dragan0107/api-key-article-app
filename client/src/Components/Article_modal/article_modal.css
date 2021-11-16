@@ -1,13 +1,29 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(120, 122, 122, 0.55);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* opacity: 40%; */
+}
+
 .artModal {
     display: flex;
     flex-direction: column;
     /* align-content: center; */
     justify-content: center;
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 520px;
     background-color: rgb(177, 175, 175);
     padding: 5%;
     border-radius: 20px;
+    position: relative;
+}
+
+.wrap {
+    max-width: 100%;
 }
 
 h3 {
@@ -15,11 +31,37 @@ h3 {
     color: rgb(73, 73, 73);
 }
 
+.titleInput {
+    width: 245px;
+}
+
 input,
 textarea {
     background-color: gainsboro;
 }
 
-.wrap {
-    max-width: 50%;
+.fileInput {
+    width: 245px;
+}
+
+label {
+    margin-left: 32px;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.closeIcon:hover {
+    color: red
+}
+
+button {
+    position: absolute;
+    bottom: 3%;
+    left: 40%;
 }
