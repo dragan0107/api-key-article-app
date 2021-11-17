@@ -1,8 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { Context } from '../../Context/Context';
 import "./navbar.css"
 
 export default function Navbar() {
-  const user = true;
+
+  const {user, dispatch} = useContext(Context);
+
+  const handleClick = () => {
+      localStorage.removeItem('jwt');
+      dispatch({type: "LOGOUT"});
+  }
+
+  // console.log(user);
     return (
         <div class="topbar">
       <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -18,10 +27,10 @@ export default function Navbar() {
               </ul>
           {user && <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link">Log Out <span class="sr-only">(current)</span></a>
+                <a class="logout nav-link" onClick={handleClick}>Log Out <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-               <a class="nav-link">drip016x <span class="sr-only">(current)</span></a>
+               <a class="nav-link">{user.username}<span class="sr-only">(current)</span></a>
               </li>
            </ul>}
           </div>

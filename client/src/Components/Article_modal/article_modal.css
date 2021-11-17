@@ -60,7 +60,7 @@ label {
     color: red
 }
 
-button {
+.addButton {
     position: absolute;
     bottom: 3%;
     left: 40%;

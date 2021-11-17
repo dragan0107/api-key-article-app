@@ -15,7 +15,7 @@ export default function Article_modal({setShowArt}) {
             <label htmlFor="">Subtitle</label>
             <textarea name="" id="" cols="30" rows="10"></textarea>
             <input type="file" className="fileInput"/>
-            <button type="submit" class="btn btn-success">ADD!</button>
+            <button className="addButton" type="submit" class="btn btn-success">ADD!</button>
         </div>
         </div>
         </div>

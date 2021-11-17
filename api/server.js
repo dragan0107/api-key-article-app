@@ -20,5 +20,6 @@ app.use('/api', router);
 app.get('/', (req, res) => {
 
     console.log(req.cookies)
+    res.send('Drip')
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
