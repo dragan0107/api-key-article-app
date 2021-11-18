@@ -1,11 +1,13 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import "./Register.css"
 import axios from 'axios';
 import { Context } from '../../Context/Context';
 
 export default function Register({changeShow}) {
 
-    const {dispatch, isFetching} = useContext(Context)
+    const {dispatch, isFetching} = useContext(Context);
+    
+    const [error, setError] = useState(false);
 
     const userRef = useRef();
     const emailRef = useRef();
@@ -28,29 +30,30 @@ export default function Register({changeShow}) {
         // window.location.replace('/');
         }
         catch (err) {
-            console.log(err);
+            setError(true);
         }
     }
 
     return (
-        <div className="modalBackground" >
+        <div className="modalBackgroundReg" >
 
-            <div className="box">
+            <div className="boxReg">
             <div className="closeButton" onClick={()=> changeShow(false)}>
             <i class="fas fa-times"></i>
             </div>
-            <form action="" className="loginForm" onSubmit={handleSubmit}>
-                <div className="inputGroup">
+            <form action="" className="registerForm" onSubmit={handleSubmit}>
+                <div className="inputGroupReg">
                     <label htmlFor="">Username</label>
-                    <input  type="text" className="usernameLogin" ref={userRef}/>
+                    <input  type="text" className="usernameReg" ref={userRef}/>
                     <label htmlFor="">Email</label>
-                    <input  type="email" className="passwordLogin" ref={emailRef}/>
+                    <input  type="email" className="passwordReg" ref={emailRef}/>
                     <label htmlFor="">Password</label>
-                    <input  type="password" className="passwordLogin" ref={passRef}/>
+                    <input  type="password" className="passwordReg" ref={passRef}/>
                     <label htmlFor="">Password Confirm</label>
-                    <input  type="password" className="passwordLogin" ref={passConfRef}/>
+                    <input  type="password" className="passwordReg" ref={passConfRef}/>
+                    {error && <p className="errorInfoReg">Passwords do not match, try again!</p>}
                 </div>
-                <button className="registerButton" type="submit">Sign Up</button>
+                <button className="regButton" type="submit">Sign Up</button>
             </form>
         </div>
         </div>

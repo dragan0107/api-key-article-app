@@ -6,4 +6,19 @@
 
 .logout {
     cursor: pointer;
+    margin-right: 60px;
+    font-size: 25px;
+}
+
+.logged {
+    margin-top: 7px;
+}
+
+.loggedIn {
+    color: rgb(203, 207, 201);
+}
+
+.username {
+    font-size: 18px;
+    color: rgb(72, 247, 174)
 }

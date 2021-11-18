@@ -29,8 +29,8 @@ export default function Navbar() {
               <li class="nav-item">
                 <a class="logout nav-link" onClick={handleClick}>Log Out <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-               <a class="nav-link">{user.username}<span class="sr-only">(current)</span></a>
+              <li class="nav-item logged">
+               <a class="nav-link"><span className="loggedIn">Logged in user: </span><span className="username">{user.username}</span><span class="sr-only">(current)</span></a>
               </li>
            </ul>}
           </div>

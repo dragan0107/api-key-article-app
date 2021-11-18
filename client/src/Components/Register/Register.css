@@ -1,4 +1,4 @@
-.modalBackground {
+.modalBackgroundReg {
     width: 100vw;
     height: 100vh;
     background-color: rgba(120, 122, 122, 0.5);
@@ -6,10 +6,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 111;
     /* opacity: 40%; */
 }
 
-.box {
+.boxReg {
     height: 450px;
     width: 450px;
     background-color: lightgray;
@@ -21,11 +22,12 @@
     position: relative;
 }
 
-.loginForm {
+.registerForm {
     /* width: 100%; */
     display: flex;
     flex-direction: column;
     text-align: center;
+    position: relative;
 }
 
 label {
@@ -44,16 +46,17 @@ input {
     padding: 10px;
 }
 
-.registerButton {
+.regButton {
     position: absolute;
-    bottom: 10px;
-    left: 100px;
+    /* left: 100px; */
+    bottom: 1px;
+    right: 93px;
     text-align: center;
     border-radius: 10px;
     border: none;
     padding: 7px;
     width: 100px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     /* margin-top: 20px; */
     background-color: rgb(218, 50, 50);
 }
@@ -70,6 +73,14 @@ input {
     color: red
 }
 
-.inputGroup {
-    margin-bottom: 55px;
+.inputGroupReg {
+    margin-bottom: 85px;
+}
+
+.errorInfoReg {
+    margin-top: 8px;
+    font-size: 15px;
+    position: absolute;
+    left: 18px;
+    color: darkred;
 }

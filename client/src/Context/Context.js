@@ -22,15 +22,18 @@ export const ContextProvider = ({ children }) => {
     useState(()=> {
 
         const getUser = async()=> {
-            try {
+            if (jwt) {
 
-                let res = await axios.post('/tokenCheck',{
-                    inputToken: jwt
-                });
-                // console.log(res);
-                dispatch({type: "LOGIN_SUCCESS", payload: res.data.foundUser})
-            } catch (err) {
-                console.log('something went wrong');
+                try {
+    
+                    let res = await axios.post('/tokenCheck',{
+                        inputToken: jwt
+                    });
+                    // console.log(res);
+                    dispatch({type: "LOGIN_SUCCESS", payload: res.data.foundUser})
+                } catch (err) {
+                    console.log('something went wrong');
+                }
             }
         }
         getUser();

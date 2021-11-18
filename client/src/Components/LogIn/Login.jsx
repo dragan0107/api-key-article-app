@@ -9,6 +9,7 @@ export default function Login() {
     const { dispatch, isFetching } = useContext(Context)
 
     const [show, setShow] = useState(false);
+    const [error, setError] = useState(false);
 
     const userRef = useRef();
     const passRef = useRef();
@@ -28,6 +29,7 @@ export default function Login() {
             dispatch({type: "LOGIN_SUCCESS", payload: res.data.data});
             localStorage.setItem('jwt', res.data.jwt);
         } catch(err) {
+            setError(true)
             dispatch({type: "LOGIN_FAILURE"});
         }
     }
@@ -36,11 +38,15 @@ export default function Login() {
         <>
         <div className="login">
             <div className="box">
+                {error && <p className="errorInfo">Wrong username or password, try again!</p>}
             <form action="" className="loginForm" onSubmit={handleSubmit}>
+            <div className="inputBoxes">
                 <label htmlFor="">Username</label>
                 <input ref={userRef}  type="text" className="usernameLogin" />
                 <label htmlFor="">Password</label>
                 <input ref={passRef}  type="password" className="passwordLogin" />
+
+            </div>
                 <button className="loginButton" type="submit">Login</button>
             </form>
                 <button className="registerButton" onClick={showModal}>Register</button>
