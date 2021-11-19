@@ -1,0 +1,30 @@
+.keyBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    /* align-items: center; */
+    position: relative;
+    /* border-bottom: 1px solid rgb(182, 181, 181); */
+    /* margin-bottom: 5px; */
+}
+
+.apiKey {
+    color: rgb(55, 137, 230);
+    border-bottom: 1px solid rgb(182, 181, 181);
+    margin-left: 130px;
+}
+
+.removeKey {
+    display: inline-block;
+    border: none;
+    background-color: rgb(207, 91, 91);
+    border-radius: 20px;
+}
+
+.delIcon {
+    position: absolute;
+    cursor: pointer;
+    right: 66px;
+    bottom: 20px;
+}

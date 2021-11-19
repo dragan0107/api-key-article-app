@@ -5,6 +5,12 @@ import Home from "./pages/Home/Home"
 import Articles from "./pages/Articles/Articles";
 import { useContext } from "react";
 import { Context } from "./Context/Context";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
@@ -12,11 +18,15 @@ function App() {
 
   const {user} = useContext(Context);
   return (
+    // <Router>
     <>
     <Navbar/>
     <Home/>
     {/* <Articles/> */}
+
     </>
+    // </Router>
+    
   );
 }
 

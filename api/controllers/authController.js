@@ -35,6 +35,12 @@ exports.tokenCheck = async(req, res) => {
 
     const decoded = jwt.verify(inputToken, process.env.JWT_SECRET);
 
+    if (!decoded) {
+        res.status(500).json({
+            message: 'User session has expired, please login in again!'
+        })
+    }
+
     try {
         const user = await User.findById(decoded.id);
 
@@ -47,7 +53,9 @@ exports.tokenCheck = async(req, res) => {
         })
 
     } catch (err) {
-        console.log(err);
+        res.status(500).json({
+            message: "User session has expired, please login in again!"
+        })
     }
 }
 

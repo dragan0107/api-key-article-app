@@ -19,39 +19,27 @@ export const ContextProvider = ({ children }) => {
     
     const jwt = localStorage.getItem('jwt');
     
-    useState(()=> {
+    useEffect(()=> {
 
         const getUser = async()=> {
             if (jwt) {
 
                 try {
-    
+                    dispatch({type: "LOGIN_START"})
                     let res = await axios.post('/tokenCheck',{
                         inputToken: jwt
                     });
-                    // console.log(res);
                     dispatch({type: "LOGIN_SUCCESS", payload: res.data.foundUser})
                 } catch (err) {
-                    console.log('something went wrong');
+                    // console.log('something went wrong');
+                    localStorage.removeItem('jwt');
+                    dispatch({type: "LOGIN_FAILURE"})
                 }
             }
         }
         getUser();
         
-    },[state.user])
-
-    // if(jwt && state.user === null) {
-
-    //     const getUser = async()=> {
-    //         let res = await axios.post('/tokenCheck',{
-    //             inputToken: jwt
-    //         });
-    //         console.log(res);
-    //         dispatch({type: "LOGIN_SUCCESS", payload: res.data.foundUser})
-    //     }
-    //     getUser();
-    // }
-    
+    },[])
 
     
     return ( <Context.Provider value = {

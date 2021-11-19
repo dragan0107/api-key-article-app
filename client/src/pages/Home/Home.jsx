@@ -10,16 +10,20 @@ export default function Home() {
 
     const [showArt, setShowArt] = useState(false);
 
-    const {user} = useContext(Context);
+    const {user, isFetching} = useContext(Context);
     // console.log(user.data.username);
-    return (
-        <>
-        
-        <div className="home">
-           {!user && <Login/>}
-           {user && <Dashboard setShowArt={setShowArt}/>}
-           {showArt && <Article_modal setShowArt={setShowArt}/>}
-        </div>
-        </>
-    )
+
+    
+    
+    return [
+        !isFetching ? <div className="home">
+        {!user && <Login/>}
+        {user && <Dashboard setShowArt={setShowArt}/>}
+        {showArt && <Article_modal setShowArt={setShowArt}/>}
+     </div>  : <div className="home">
+         <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-26.jpg" alt="" />
+     </div>
+         
+    ]
+    
 }

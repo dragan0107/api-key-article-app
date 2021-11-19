@@ -25,7 +25,7 @@ export default function Navbar() {
                 <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
               </li>
               </ul>
-          {user && <ul class="navbar-nav ml-auto">
+              {user && <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="logout nav-link" onClick={handleClick}>Log Out <span class="sr-only">(current)</span></a>
               </li>

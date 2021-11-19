@@ -17,20 +17,29 @@ export default function Register({changeShow}) {
     const handleSubmit = async(e) => {
         e.preventDefault();
         dispatch({type: "LOGIN_START"});
-        try {
-            const res = await axios.post('/register', {
-            username: userRef.current.value,
-            email: emailRef.current.value,
-            password: passRef.current.value,
-            passwordConfirm: passConfRef.current.value
-});
 
-        localStorage.setItem('jwt', res.data.jwt);
-        dispatch({type: "LOGIN_SUCCESS", payload: res.data.data});
-        // window.location.replace('/');
-        }
-        catch (err) {
+        console.log(passRef.current.value === passConfRef.current.value);
+
+        if (passRef.current.value === passConfRef.current.value) {
+
+            try {
+                const res = await axios.post('/register', {
+                username: userRef.current.value,
+                email: emailRef.current.value,
+                password: passRef.current.value,
+                passwordConfirm: passConfRef.current.value
+    });
+    
+            localStorage.setItem('jwt', res.data.jwt);
+            dispatch({type: "LOGIN_SUCCESS", payload: res.data.data});
+            // window.location.replace('/');
+            }
+            catch (err) {
+                console.log(err);
+            }
+        } else {
             setError(true);
+            dispatch({type: "LOGIN_FAILURE"})
         }
     }
 
