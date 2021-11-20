@@ -13,6 +13,7 @@
     color: rgb(55, 137, 230);
     border-bottom: 1px solid rgb(182, 181, 181);
     margin-left: 130px;
+    font-size: 17px;
 }
 
 .removeKey {
@@ -27,4 +28,10 @@
     cursor: pointer;
     right: 66px;
     bottom: 20px;
+}
+
+.notification {
+    font-size: 20px;
+    font-weight: 600;
+    color: cadetblue;
 }

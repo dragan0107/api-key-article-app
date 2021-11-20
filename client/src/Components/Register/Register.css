@@ -48,8 +48,10 @@ input {
 
 .regButton {
     position: absolute;
+    font-size: 18px;
+    font-weight: 600;
     /* left: 100px; */
-    bottom: 1px;
+    bottom: -8px;
     right: 93px;
     text-align: center;
     border-radius: 10px;

@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { Context } from "./Context/Context";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
@@ -18,14 +18,13 @@ function App() {
 
   const {user} = useContext(Context);
   return (
-    // <Router>
-    <>
-    <Navbar/>
-    <Home/>
-    {/* <Articles/> */}
-
-    </>
-    // </Router>
+    <Router>
+      <Navbar/>
+    <Routes>
+      <Route exact path="/" element={<Home/> }/>
+      <Route  path="/articles" element={<Articles/>}/>
+    </Routes>
+    </Router>
     
   );
 }

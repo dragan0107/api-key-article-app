@@ -4,10 +4,19 @@
     z-index: 11;
 }
 
+.navClass {
+    color: cornflowerblue !important;
+}
+
 .logout {
     cursor: pointer;
     margin-right: 60px;
     font-size: 25px;
+}
+
+.links {
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .logged {
@@ -19,6 +28,7 @@
 }
 
 .username {
-    font-size: 18px;
-    color: rgb(72, 247, 174)
+    margin-left: 3px;
+    font-size: 20px;
+    color: rgb(171, 247, 72)
 }

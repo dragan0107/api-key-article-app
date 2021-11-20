@@ -100,3 +100,18 @@ exports.userLogin = async(req, res) => {
         })
     }
 }
+
+exports.getUser = async(req, res) => {
+    const { inputUser } = req.body;
+
+    try {
+        const userFound = await User.findOne({ username: inputUser });
+        res.status(200).json({
+            user: userFound.username
+        })
+    } catch (err) {
+        res.status(400).json({
+            message: "User not found, its free!"
+        })
+    }
+}
