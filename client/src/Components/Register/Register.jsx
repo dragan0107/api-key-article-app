@@ -8,6 +8,7 @@ export default function Register({changeShow}) {
     const {dispatch, isFetching} = useContext(Context);
     
     const [error, setError] = useState(false);
+    const [usernameErr, setUsernameErr] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
 
     const userRef = useRef();
@@ -16,18 +17,18 @@ export default function Register({changeShow}) {
     const passConfRef = useRef();
 
     const handleChange = async (e) => {
-        setError(false);
+        setUsernameErr(false)
         setErrorMsg("");
         const res = await axios.post('/getUser',{
             inputUser: e.target.value
         });
 
         if(!res.data.user) {
-            setError(false);
+            setUsernameErr(false)
             setErrorMsg("");
             
         } else {
-            setError(true);
+            setUsernameErr(true)
             setErrorMsg("Username already taken, choose a different one!");
         }
     }
@@ -79,9 +80,9 @@ export default function Register({changeShow}) {
                     <input  type="password" className="passwordReg" ref={passRef}/>
                     <label htmlFor="">Password Confirm</label>
                     <input  type="password" className="passwordReg" ref={passConfRef}/>
-                    {error && <p className="errorInfoReg">{errorMsg}</p>}
+                    {(error || usernameErr) && <p className="errorInfoReg">{errorMsg}</p>}
                 </div>
-                <button className="regButton" type="submit" disabled={error ? true : false} >Sign Up</button>
+                <button className="regButton" type="submit" disabled={usernameErr ? true : false} >Sign Up</button>
             </form>
         </div>
         </div>

@@ -39,24 +39,26 @@ exports.tokenCheck = async(req, res) => {
         res.status(500).json({
             message: 'User session has expired, please login in again!'
         })
+    } else {
+
+        try {
+            const user = await User.findById(decoded.id);
+
+            user._id = null;
+            user.password = null;
+            user.email = null;
+
+            res.status(200).json({
+                foundUser: user
+            })
+
+        } catch (err) {
+            res.status(500).json({
+                message: "User session has expired, please login in again!"
+            })
+        }
     }
 
-    try {
-        const user = await User.findById(decoded.id);
-
-        user._id = null;
-        user.password = null;
-        user.email = null;
-
-        res.status(200).json({
-            foundUser: user
-        })
-
-    } catch (err) {
-        res.status(500).json({
-            message: "User session has expired, please login in again!"
-        })
-    }
 }
 
 exports.userRegister = async(req, res) => {
@@ -83,21 +85,25 @@ exports.userRegister = async(req, res) => {
 exports.userLogin = async(req, res) => {
 
     const { username, password } = req.body;
+
     try {
 
         const user = await User.findOne({ username });
-        if (!user) res.status(400).json({ msg: "Wrong credentials!" })
 
         const validate = await bcrypt.compare(password, user.password);
-        if (!validate) res.status(400).json({ msg: "Wrong credentials!" });
+        if (!validate) {
+            res.status(500).json({ msg: "Wrong credentials!" })
+        } else {
+            createSendToken(user, res);
 
-        createSendToken(user, res);
+        }
+
 
     } catch (err) {
         console.log(err)
-        res.status(500).json({
-            error: err
-        })
+            // res.status(500).json({
+            //     error: err
+            // })
     }
 }
 

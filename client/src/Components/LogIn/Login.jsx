@@ -6,10 +6,9 @@ import "./login.css"
 
 export default function Login() {
 
-    const { dispatch, isFetching } = useContext(Context)
+    const {user, dispatch, isFetching, error } = useContext(Context)
 
     const [show, setShow] = useState(false);
-    const [error, setError] = useState(false);
 
     const userRef = useRef();
     const passRef = useRef();
@@ -20,16 +19,17 @@ export default function Login() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        dispatch({type: "LOGIN_START"});
         try {
+            dispatch({type: "LOGIN_START"});
             const res = await axios.post('/login',{
                 username: userRef.current.value,
                 password: passRef.current.value
             });
             dispatch({type: "LOGIN_SUCCESS", payload: res.data.data});
             localStorage.setItem('jwt', res.data.jwt);
+            console.log(res);
+            
         } catch(err) {
-            setError(true)
             dispatch({type: "LOGIN_FAILURE"});
         }
     }
