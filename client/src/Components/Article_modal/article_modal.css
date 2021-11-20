@@ -14,7 +14,7 @@
     flex-direction: column;
     /* align-content: center; */
     justify-content: center;
-    height: 600px;
+    height: 640px;
     width: 520px;
     background-color: rgb(177, 175, 175);
     padding: 5%;
@@ -63,5 +63,14 @@ label {
 .addButton {
     position: absolute;
     bottom: 3%;
-    left: 40%;
+    left: 38%;
+}
+
+.addButton:disabled {
+    cursor: not-allowed;
+}
+
+.imgLabel {
+    margin-top: 0;
+    margin-bottom: 5px;
 }

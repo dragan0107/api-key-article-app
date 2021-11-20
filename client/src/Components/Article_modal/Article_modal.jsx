@@ -7,6 +7,7 @@ export default function Article_modal({setShowArt}) {
     const [title, setTitle] = useState('');
     const [subtitle, setSubtitle] = useState('');
     const [img, setImg] = useState('');
+    const [loading, setLoading] = useState(false)
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -23,6 +24,20 @@ export default function Article_modal({setShowArt}) {
         }
     }
 
+    const handleChange = async e => {
+        const files = e.target.files;
+
+        const data = new FormData();
+        data.append('file',files[0]);
+        data.append('upload_preset','test_upload_react');
+        setLoading(true);
+
+        const res = await axios.post('https://api.cloudinary.com/v1_1/dripcloud/image/upload',data);
+
+        setImg(res.data.secure_url);
+        setLoading(false);
+    }
+
     return (
         <div className="modalBackground">
 
@@ -33,11 +48,12 @@ export default function Article_modal({setShowArt}) {
         <form action="" onSubmit={handleSubmit}>
 
             <label htmlFor="">Title</label>
-            <input type="text" className="titleInput" onChange={(e)=> setTitle(e.target.value)}/>
+            <input type="text" className="titleInput" onChange={(e)=> setTitle(e.target.value)} maxLength="50"/>
             <label htmlFor="">Subtitle</label>
             <textarea name="" id="" cols="30" rows="10" onChange={(e)=> setSubtitle(e.target.value)}></textarea>
-            <input type="file" className="fileInput"/>
-            <button className="addButton" type="submit" class="btn btn-success">ADD!</button>
+            <label className="imgLabel" htmlFor="">Upload Image.</label>
+            <input type="file" className="fileInput" onChange={handleChange}/>
+            <button className="" type="submit" disabled={loading ? true : false}class="addButton btn btn-success">Submit article.</button>
         </form>
         </div>
         </div>

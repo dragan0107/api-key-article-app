@@ -12,3 +12,16 @@ exports.addArticle = async(req, res) => {
         console.log(err);
     }
 }
+
+
+exports.getAllArticles = async(req, res) => {
+
+    try {
+        const articles = await Article.find();
+        res.status(200).json({
+            data: articles
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}

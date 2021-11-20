@@ -17,6 +17,8 @@ import {
 function App() {
 
   const {user} = useContext(Context);
+
+
   return (
     <Router>
       <Navbar/>

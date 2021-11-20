@@ -57,3 +57,22 @@ exports.deleteKey = async(req, res) => {
         console.log(err);
     }
 }
+
+
+exports.verifyAPI = async(req, res, next) => {
+    const { apikey } = req.query;
+
+    try {
+        const result = await APIKey.findOne({ api_key: apikey });
+        if (result) {
+            next();
+        } else {
+            res.status(500).json({
+                message: "Invalid API key, restricted access!"
+            })
+        }
+
+    } catch (err) {
+
+    }
+}

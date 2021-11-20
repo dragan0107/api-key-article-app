@@ -28,9 +28,9 @@ export default function Navbar() {
               </Link>
               </li>
               <li class="nav-item">
-              <Link className="routerLink" to="/articles">
+              {user && <Link className="routerLink" to="/articles">
                 <a class="nav-link links" >Articles <span class="sr-only">(current)</span></a>
-              </Link>
+              </Link>}
               </li>
               </ul>
               {user && <ul class="navbar-nav ml-auto">
