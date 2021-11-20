@@ -3,7 +3,7 @@ import Register from "./Components/Register/Register";
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./pages/Home/Home"
 import Articles from "./pages/Articles/Articles";
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { Context } from "./Context/Context";
 import {
   BrowserRouter as Router,
@@ -16,6 +16,8 @@ import {
 
 function App() {
 
+
+
   const {user} = useContext(Context);
 
 
@@ -25,6 +27,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Home/> }/>
       <Route  path="/articles" element={<Articles/>}/>
+      <Route  path="/public/articles" element={<Articles/>}/>
     </Routes>
     </Router>
     
