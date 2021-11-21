@@ -9,3 +9,16 @@ for the user authentication.
 - Logged in users do not have to pass API key.
 - Adding articles with image.
 - Image is uploaded on a cloud server, and pulled directly by the url. (Cloudinary clouding service).
+
+
+## How to use? 
+- Go both into 'api' and 'client' folders and run
+```
+npm install
+```
+- After that, run the following command both for api and client:
+```
+npm start
+```
+
+- If there is any errors for installing client dependencies, try to use --force to fix it..

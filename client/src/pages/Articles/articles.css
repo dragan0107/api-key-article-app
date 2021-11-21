@@ -1,7 +1,13 @@
+.fullSection {
+    padding: 20px;
+}
+
 .articles {
     display: flex;
     flex-flow: row wrap;
     position: relative;
+    justify-content: center;
+    /* max-width: 90%; */
 }
 
 .pageSelectors {

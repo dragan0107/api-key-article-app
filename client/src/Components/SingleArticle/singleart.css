@@ -26,7 +26,7 @@
 } */
 
 .card {
-    margin: 20px;
+    margin: 25px;
     position: relative;
 }
 
@@ -48,10 +48,11 @@
 
 .card-title {
     cursor: pointer;
+    font-size: 27px;
 }
 
 .card-title:hover {
-    color: seagreen;
+    color: rgb(209, 118, 44);
 }
 
 .commentBtn {

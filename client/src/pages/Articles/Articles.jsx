@@ -16,7 +16,7 @@ export default function Articles({articles}) {
     const [arts, setArts] = useState([]); //All articles from DB.
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(4);
+    const [postsPerPage] = useState(6);
     const [apiKeyError, setApiKeyError] = useState(false);
     const [showComment, setShowComment] = useState(false);
     const [postedComm, setPostedComm] = useState(false);
@@ -58,8 +58,10 @@ export default function Articles({articles}) {
     const currentPosts = arts.slice(idxOfFirstPost,idxOfLastPost);
 
     return (
+        <div className="fullSection">
+
         <div className="articles">
-            {apiKeyError && <h1>You have no access to this page, without valid API Key!</h1>}    
+            {apiKeyError && <h1 className="apiKeyErrorMsg">You have no access to this page, without valid API Key!</h1>}    
              <div className="pageSelectors">
                 <Pagination postsPerPage={postsPerPage} totalPosts={arts.length} setPage={setCurrentPage}/>
             </div>
@@ -68,6 +70,7 @@ export default function Articles({articles}) {
             setShowComment={setShowComment} setArticleId={setArticleId} setShowReadingModal={setShowReadingModal} setReadArt={setReadArt}/> )}
             {showComment && <CommentModal setShowComment={setShowComment} articleId={articleId} setPostedComm={setPostedComm}/>}
             {showReadingModal && <ReadingModal readArt={readArt} setShowReadingModal={setShowReadingModal}/>}
+        </div>
         </div>
     )
 }
