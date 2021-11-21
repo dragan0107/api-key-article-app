@@ -24,6 +24,7 @@
 
 .wrap {
     max-width: 100%;
+    /* position: relative; */
 }
 
 h3 {
@@ -62,7 +63,7 @@ label {
 
 .addButton {
     position: absolute;
-    bottom: 3%;
+    bottom: 1.8%;
     left: 38%;
 }
 
@@ -73,4 +74,12 @@ label {
 .imgLabel {
     margin-top: 0;
     margin-bottom: 5px;
+}
+
+.submittedMsg {
+    color: rgb(234, 255, 47);
+    font-size: 15px;
+    position: absolute;
+    bottom: 46px;
+    left: 150px;
 }

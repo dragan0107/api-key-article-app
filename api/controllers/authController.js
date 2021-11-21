@@ -2,11 +2,11 @@ const User = require('../Models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-
+//process.env.JWT_EXPIRES_IN
 //Token generator function that takes the user ID as a parameter.
 const generateToken = id => {
     return jwt.sign({ id: id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN
+        expiresIn: "1h"
     });
 }
 
@@ -31,18 +31,25 @@ const createSendToken = (user, res) => {
 }
 
 exports.tokenCheck = async(req, res) => {
+
     const { inputToken } = req.body;
 
-    const decoded = jwt.verify(inputToken, process.env.JWT_SECRET);
+    let token;
 
-    if (!decoded) {
-        res.status(500).json({
-            message: 'User session has expired, please login in again!'
-        })
-    } else {
+    jwt.verify(inputToken, process.env.JWT_SECRET, (err, decoded) => {
+
+        if (!err) {
+            token = decoded;
+        } else {
+            console.log(err);
+        }
+
+    });
+
+    if (token) {
 
         try {
-            const user = await User.findById(decoded.id);
+            const user = await User.findById(token.id);
 
             user._id = null;
             user.password = null;
@@ -57,7 +64,13 @@ exports.tokenCheck = async(req, res) => {
                 message: "User session has expired, please login in again!"
             })
         }
+    } else {
+        res.status(400).json({
+            message: 'User session has expired, please login in again!'
+        })
     }
+
+
 
 }
 

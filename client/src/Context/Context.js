@@ -15,13 +15,12 @@ export const Context = createContext(INITIAL_STATE);
 export const ContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
-
-    
-    const jwt = localStorage.getItem('jwt');
     
     useEffect(()=> {
-
+        
         const getUser = async()=> {
+
+            const jwt = localStorage.getItem('jwt');
             if (jwt) {
 
                 try {
@@ -29,13 +28,14 @@ export const ContextProvider = ({ children }) => {
                     let res = await axios.post('/tokenCheck',{
                         inputToken: jwt
                     });
+                    console.log(res);
                     dispatch({type: "LOGIN_SUCCESS", payload: res.data.foundUser})
+                   
                 } catch (err) {
-                    // console.log('something went wrong');
-                    localStorage.removeItem('jwt');
                     dispatch({type: "LOGIN_FAILURE"})
+                    localStorage.removeItem('jwt');
                 }
-            }
+            } 
         }
         getUser();
         

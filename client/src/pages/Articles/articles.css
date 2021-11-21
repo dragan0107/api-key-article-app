@@ -4,6 +4,11 @@
     position: relative;
 }
 
+.pageSelectors {
+    margin-top: 20px;
+    width: 100%;
+}
+
 .loadingImg {
     position: absolute;
     top: 20%;

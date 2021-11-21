@@ -8,18 +8,22 @@ export default function Article_modal({setShowArt}) {
     const [subtitle, setSubtitle] = useState('');
     const [img, setImg] = useState('');
     const [loading, setLoading] = useState(false)
+    const [sent, setSent] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
+        setSent(false);
         try {
             const res = axios.post('/addArticle', {
                 title: title,
                 subtitle: subtitle,
                 image: img
             });
-            window.location.replace('/articles');
+            setSent(true);
+            // window.location.replace('/articles');
 
         }catch (err) {
+            setSent(false);
             console.log(err);
         }
     }
@@ -52,7 +56,8 @@ export default function Article_modal({setShowArt}) {
             <label htmlFor="">Subtitle</label>
             <textarea name="" id="" cols="30" rows="10" onChange={(e)=> setSubtitle(e.target.value)}></textarea>
             <label className="imgLabel" htmlFor="">Upload Image.</label>
-            <input type="file" className="fileInput" onChange={handleChange}/>
+            <input type="file" className="fileInput" onChange={handleChange}/> 
+            {sent && <label className="submittedMsg" htmlFor="">Successfully submitted!</label> }
             <button className="" type="submit" disabled={loading ? true : false}class="addButton btn btn-success">Submit article.</button>
         </form>
         </div>
