@@ -11,8 +11,7 @@ export default function Dashboard({setShowArt}) {
 
     const deleteApiKey = async(id)=> {
             try{
-
-                const res = await axios.post('/deleteKey', {
+                await axios.post('/deleteKey', {
                     apikeyID: id
                 });
                 getApiKeys();
@@ -24,7 +23,7 @@ export default function Dashboard({setShowArt}) {
 
     const createAPI = async()=> {
         try {
-            const res = await axios.post('/generateKey', {
+            await axios.post('/generateKey', {
                 username: user.username
             });
             getApiKeys();

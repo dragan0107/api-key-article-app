@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { createContext, useReducer } from "react"
 import Reducer from "./Reducer";
 import axios from 'axios';
@@ -28,7 +28,6 @@ export const ContextProvider = ({ children }) => {
                     let res = await axios.post('/tokenCheck',{
                         inputToken: jwt
                     });
-                    console.log(res);
                     dispatch({type: "LOGIN_SUCCESS", payload: res.data.foundUser})
                    
                 } catch (err) {

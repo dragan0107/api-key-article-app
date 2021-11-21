@@ -1,0 +1,46 @@
+.commentBoxBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(58, 57, 57, 0.55);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 222;
+    /* opacity: 40%; */
+}
+
+.commentBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 350px;
+    width: 350px;
+    background-color: rgb(187, 187, 187);
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+}
+
+.commentInput {
+    border: none
+}
+
+.closeCommentBox {
+    position: absolute;
+    font-size: 22px;
+    top: 10px;
+    right: 17px;
+    cursor: pointer;
+}
+
+.closeCommentBox:hover {
+    color: red;
+}
+
+.submitCommentBtn {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}

@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './article_modal.css'
 import axios from 'axios'
+import { Context } from '../../Context/Context';
 
 export default function Article_modal({setShowArt}) {
+    
+    const { user } = useContext(Context);
 
     const [title, setTitle] = useState('');
     const [subtitle, setSubtitle] = useState('');
@@ -14,10 +17,11 @@ export default function Article_modal({setShowArt}) {
         e.preventDefault();
         setSent(false);
         try {
-            const res = axios.post('/addArticle', {
+            axios.post('/addArticle', {
                 title: title,
                 subtitle: subtitle,
-                image: img
+                image: img,
+                author: user.username
             });
             setSent(true);
             // window.location.replace('/articles');

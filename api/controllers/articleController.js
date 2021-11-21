@@ -24,3 +24,23 @@ exports.getAllArticles = async(req, res) => {
         console.log(err);
     }
 }
+
+exports.commentArticle = async(req, res) => {
+
+    const { comment, artId } = req.body;
+
+    const newItem = {
+        comment: comment
+    }
+
+    try {
+        await Article.findByIdAndUpdate(artId, { $push: { comments: newItem } });
+        res.status(200).json({
+            message: "success"
+        })
+    } catch (error) {
+        res.status(500).json({
+            err: error
+        })
+    }
+}

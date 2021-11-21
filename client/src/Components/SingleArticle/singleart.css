@@ -46,6 +46,14 @@
     margin-bottom: 35px;
 }
 
+.card-title {
+    cursor: pointer;
+}
+
+.card-title:hover {
+    color: seagreen;
+}
+
 .commentBtn {
     position: absolute;
     bottom: 10px;

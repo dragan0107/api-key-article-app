@@ -6,7 +6,7 @@ import "./login.css"
 
 export default function Login() {
 
-    const {user, dispatch, isFetching, error } = useContext(Context)
+    const { dispatch, error } = useContext(Context)
 
     const [show, setShow] = useState(false);
 

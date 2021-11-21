@@ -2,9 +2,13 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const router = require('./routes/router');
 dotenv.config();
+app.use(express.urlencoded({
+    extended: true
+}));
+const router = require('./routes/router');
 app.use(express.json());
+
 const port = 5000;
 
 mongoose.connect(process.env.MONGO_URL, {

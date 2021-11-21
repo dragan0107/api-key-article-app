@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { userRegister, tokenCheck, userLogin, getUser } = require('../controllers/authController');
 const { apiKeyGenerator, getApiKeys, deleteKey, verifyAPI } = require('../controllers/api_keyController');
-const { addArticle, getAllArticles } = require('../controllers/articleController');
+const { addArticle, getAllArticles, commentArticle } = require('../controllers/articleController');
 
 //User routes.
 router.post('/register', userRegister)
@@ -18,6 +18,7 @@ router.post('/getKeys', getApiKeys);
 
 router.post('/addArticle', addArticle)
 router.get('/getArticles', getAllArticles)
+router.post('/commentArticle', commentArticle)
 router.get('/public/getArticles', verifyAPI, getAllArticles) //Public API endpoint, accessed only with valid API key.
 
 
