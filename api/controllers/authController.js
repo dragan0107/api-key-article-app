@@ -41,7 +41,7 @@ exports.tokenCheck = async(req, res) => {
         if (!err) {
             token = decoded;
         } else {
-            console.log(err);
+            // console.log(err);
         }
 
     });
@@ -55,17 +55,17 @@ exports.tokenCheck = async(req, res) => {
             user.password = null;
             user.email = null;
 
-            res.status(200).json({
+            return res.status(200).json({
                 foundUser: user
             })
 
         } catch (err) {
-            res.status(500).json({
+            return res.status(401).json({
                 message: "User session has expired, please login in again!"
             })
         }
     } else {
-        res.status(400).json({
+        res.status(401).json({
             message: 'User session has expired, please login in again!'
         })
     }
@@ -100,7 +100,7 @@ exports.userLogin = async(req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
-        return res.status(500).json({
+        return res.status(404).json({
             message: "You did not input all information"
         });
     }
@@ -141,7 +141,7 @@ exports.getUser = async(req, res) => {
             user: userFound.username
         })
     } catch (err) {
-        res.status(400).json({
+        res.status(404).json({
             message: "User not found, its free!"
         })
     }
