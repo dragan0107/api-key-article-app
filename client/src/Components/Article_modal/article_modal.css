@@ -14,8 +14,8 @@
     flex-direction: column;
     /* align-content: center; */
     justify-content: center;
-    height: 640px;
-    width: 540px;
+    height: 620px;
+    width: 520px;
     background-color: rgb(214, 209, 209);
     padding: 5%;
     border-radius: 20px;
@@ -78,7 +78,7 @@ label {
 }
 
 .submittedMsg {
-    color: rgba(105, 211, 141, 0.959);
+    color: rgba(8, 178, 245, 0.959);
     font-size: 16px;
     font-weight: 600;
     position: absolute;

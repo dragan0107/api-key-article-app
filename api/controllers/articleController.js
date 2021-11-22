@@ -47,7 +47,6 @@ exports.commentArticle = async(req, res) => {
 
 exports.deleteArticle = async(req, res) => {
     const { artId } = req.params;
-    console.log(artId);
     try {
         await Article.findByIdAndDelete(artId);
         res.status(200).json({
@@ -55,7 +54,7 @@ exports.deleteArticle = async(req, res) => {
         })
     } catch (error) {
         res.status(500).json({
-            message: "Somethign went wrong.."
+            message: "Something went wrong.."
         });
     }
 }
