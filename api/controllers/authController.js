@@ -99,17 +99,31 @@ exports.userLogin = async(req, res) => {
 
     const { username, password } = req.body;
 
+    if (!username || !password) {
+        res.status(500).json({
+            message: "You did not input all information"
+        });
+    }
+
     try {
 
         const user = await User.findOne({ username });
 
-        const validate = await bcrypt.compare(password, user.password);
-        if (!validate) {
-            res.status(500).json({ msg: "Wrong credentials!" })
+        if (!user) {
+            res.status(404).json({
+                message: "Wrong credentials!"
+            });
         } else {
-            createSendToken(user, res);
 
+            const validate = await bcrypt.compare(password, user.password);
+            if (!validate) {
+                res.status(404).json({ msg: "Wrong credentials!" })
+            } else {
+                createSendToken(user, res);
+
+            }
         }
+
 
 
     } catch (err) {
