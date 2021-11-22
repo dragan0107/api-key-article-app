@@ -15,8 +15,8 @@ export default function Navbar() {
   // console.log(user);
     return (
         <div class="topbar">
-      <nav class="navClass navbar navbar-expand-lg navbar-dark bg-secondary">
-        <a class="navbar-brand" >Forlogis</a>
+      <nav class="navClass navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" >Forlogis <i class="fab fa-foursquare"></i></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>

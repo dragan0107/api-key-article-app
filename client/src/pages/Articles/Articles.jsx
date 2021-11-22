@@ -7,6 +7,7 @@ import { useLocation } from 'react-router';
 import { Context } from '../../Context/Context';
 import Pagination from '../../Components/Pagination/Pagination';
 import { ReadingModal } from '../../Components/ReadingModal/ReadingModal';
+import { ConfirmDelete } from '../../Components/ConfirmDelete/ConfirmDelete'
 
 
 export default function Articles({articles}) {
@@ -23,6 +24,7 @@ export default function Articles({articles}) {
     const [showReadingModal, setShowReadingModal] = useState(false);
     const [articleId, setArticleId] = useState('');
     const [readArt, setReadArt] = useState();
+    const [confirmDel, setConfirmDel] = useState(false);
     
     const location = useLocation().search;
     const key = new URLSearchParams(location);
@@ -67,9 +69,12 @@ export default function Articles({articles}) {
             </div>
             {loading ? <img className="loadingImg "src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-26.jpg" alt="" /> 
             : currentPosts.map((el, idx) => <SingleArt key={idx} article={el} 
-            setShowComment={setShowComment} setArticleId={setArticleId} setShowReadingModal={setShowReadingModal} setReadArt={setReadArt}/> )}
+            setShowComment={setShowComment} setArticleId={setArticleId} setShowReadingModal={setShowReadingModal} setReadArt={setReadArt}  setConfirmDel={setConfirmDel}/> )}
             {showComment && <CommentModal setShowComment={setShowComment} articleId={articleId} setPostedComm={setPostedComm}/>}
             {showReadingModal && <ReadingModal readArt={readArt} setShowReadingModal={setShowReadingModal}/>}
+            {confirmDel && <ConfirmDelete setConfirmDel={setConfirmDel} articleId={articleId} setArticleId={setArticleId}
+                postedComm={postedComm} setPostedComm={setPostedComm}
+            />}
         </div>
         </div>
     )

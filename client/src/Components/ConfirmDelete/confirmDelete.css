@@ -1,0 +1,61 @@
+.confirmBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(58, 57, 57, 0.55);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 555;
+    /* opacity: 40%; */
+}
+
+.dialogBox {
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    width: 300px;
+    background-color: lavenderblush;
+    border-radius: 20px;
+    position: relative;
+}
+
+.infoMsg {
+    text-align: center;
+    font-size: 18px;
+}
+
+.confirmBtn {
+    height: 37px;
+    width: 88px;
+    border-radius: 10px;
+    border: none;
+    /* margin-right: 30px;s */
+}
+
+.noBtn {
+    margin-right: 10px;
+    background-color: rgb(230, 60, 60);
+}
+
+.yesBtn {
+    margin-left: 10px;
+    background-color: rgb(75, 235, 75);
+}
+
+.btns {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    width: 80%;
+}
+
+.confirmSpan {
+    font-weight: 600;
+    color: rgb(57, 58, 57);
+}

@@ -5,7 +5,8 @@
 }
 
 .navClass {
-    color: cornflowerblue !important;
+    /* color: cornflowerblue; */
+    background-color: rgb(83, 81, 82);
 }
 
 .logout {

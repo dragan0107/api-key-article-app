@@ -58,7 +58,7 @@ export default function Article_modal({setShowArt}) {
             <label htmlFor="">Title</label>
             <input type="text" className="titleInput" onChange={(e)=> setTitle(e.target.value)} maxLength="50"/>
             <label htmlFor="">Subtitle</label>
-            <textarea name="" id="" cols="30" rows="10" onChange={(e)=> setSubtitle(e.target.value)}></textarea>
+            <textarea className="subtitleInput" name="" id="" cols="30" rows="9" onChange={(e)=> setSubtitle(e.target.value)}></textarea>
             <label className="imgLabel" htmlFor="">Upload Image.</label>
             <input type="file" className="fileInput" onChange={handleChange}/> 
             {sent && <label className="submittedMsg" htmlFor="">Successfully submitted!</label> }

@@ -1,7 +1,7 @@
 .commentBoxBackground {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(58, 57, 57, 0.55);
+    background-color: rgba(155, 154, 154, 0.55);
     position: fixed;
     display: flex;
     justify-content: center;

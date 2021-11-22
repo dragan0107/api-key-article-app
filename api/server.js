@@ -18,12 +18,6 @@ mongoose.connect(process.env.MONGO_URL, {
     .then(console.log('Successfully connected to the database.'))
     .catch((err) => console.log(err));
 
-
-
 app.use('/api', router);
-app.get('/', (req, res) => {
 
-    console.log(req.cookies)
-    res.send('Drip')
-});
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Forlogis backend listening on port ${port}!`));

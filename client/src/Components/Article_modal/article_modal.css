@@ -15,8 +15,8 @@
     /* align-content: center; */
     justify-content: center;
     height: 640px;
-    width: 520px;
-    background-color: rgb(177, 175, 175);
+    width: 540px;
+    background-color: rgb(214, 209, 209);
     padding: 5%;
     border-radius: 20px;
     position: relative;
@@ -28,21 +28,22 @@
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 24px;
     color: rgb(73, 73, 73);
 }
 
 .titleInput {
     width: 245px;
+    background-color: rgb(227, 231, 235);
 }
 
-input,
-textarea {
-    background-color: gainsboro;
+.subtitleInput {
+    background-color: rgb(227, 231, 235);
 }
 
 .fileInput {
     width: 245px;
+    background-color: rgb(227, 231, 235);
 }
 
 label {
@@ -77,9 +78,10 @@ label {
 }
 
 .submittedMsg {
-    color: rgb(234, 255, 47);
-    font-size: 15px;
+    color: rgba(105, 211, 141, 0.959);
+    font-size: 16px;
+    font-weight: 600;
     position: absolute;
-    bottom: 46px;
+    bottom: 47px;
     left: 150px;
 }
