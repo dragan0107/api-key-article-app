@@ -1,5 +1,6 @@
 Forlogis test project.
-## It is a full stack application made with MERN. Users can login and register, create API keys, add, delete and update articles, and use the API key to gain access to the articles without logging in after. When not logged in, users can leave article comments anonymously.
+## It is a full stack application made with MERN.
+### Users can login and register, create API keys, add, delete and update articles, and use the API key to gain access to the articles without logging in after. When not logged in, users can leave article comments anonymously.
 - Login and Registration system is custom made, password encrypted using 'bcrypt', while JSON Web Token is used
 for the user authentication.
 - Registration modal will let user know if username was already taken, as he types it, or if passwords do not match.
