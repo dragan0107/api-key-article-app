@@ -1,0 +1,95 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(58, 57, 57, 0.55);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* opacity: 40%; */
+}
+
+form {
+    text-align: center;
+}
+
+.titleHeader {
+    text-align: center;
+}
+
+.artModal {
+    display: flex;
+    flex-direction: column;
+    /* align-content: center; */
+    justify-content: center;
+    height: 620px;
+    width: 520px;
+    background-color: rgb(214, 209, 209);
+    padding: 5%;
+    border-radius: 20px;
+    position: relative;
+}
+
+.wrap {
+    max-width: 100%;
+    /* position: relative; */
+}
+
+h3 {
+    font-size: 24px;
+    color: rgb(73, 73, 73);
+}
+
+.titleInput {
+    width: 245px;
+    background-color: rgb(227, 231, 235);
+}
+
+.subtitleInput {
+    background-color: rgb(227, 231, 235);
+}
+
+.fileInput {
+    width: 245px;
+    background-color: rgb(227, 231, 235);
+}
+
+label {
+    margin-left: 32px;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.closeIcon:hover {
+    color: red
+}
+
+.addButton {
+    position: absolute;
+    bottom: 1.8%;
+    left: 38%;
+}
+
+.addButton:disabled {
+    cursor: not-allowed;
+}
+
+.imgLabel {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.submittedMsg {
+    color: rgba(8, 178, 245, 0.959);
+    font-size: 16px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 47px;
+    left: 150px;
+}

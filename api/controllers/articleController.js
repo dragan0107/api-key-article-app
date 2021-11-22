@@ -58,3 +58,21 @@ exports.deleteArticle = async(req, res) => {
         });
     }
 }
+
+exports.updateArticle = async(req, res) => {
+    const { artId } = req.params;
+
+
+    try {
+        const updatedArt = await Article.findByIdAndUpdate(artId,
+            req.body, { new: true });
+        res.status(200).json({
+            art: updatedArt
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Something went wrong.."
+        });
+    }
+}

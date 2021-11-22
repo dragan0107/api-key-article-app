@@ -3,7 +3,7 @@ import { Context } from '../../Context/Context';
 import "./singleart.css";
 // import { Link } from "react-router-dom";
 
-export default function SingleArt({article, setShowComment, setArticleId, setShowReadingModal, setReadArt, setConfirmDel}) {
+export default function SingleArt({article, setShowComment, setArticleId, setShowReadingModal, setReadArt, setConfirmDel,setShowUpdateMod}) {
 
     const {user} = useContext(Context);
 
@@ -31,7 +31,7 @@ export default function SingleArt({article, setShowComment, setArticleId, setSho
                 {/* if there is user, it's gonna check if the user matches article author, and add delete and edit icons */}
                 {(user && (user.username === article.author)) && <div className="editDelete">
                     <i onClick={() => {setConfirmDel(true); setArticleId(article._id)}} class="deleteArtBtn botIcon fas fa-trash"></i>
-                    <i class="editArtBtn botIcon fas fa-edit"></i>
+                    <i onClick={() => {setShowUpdateMod(true); setReadArt(article)}} class="editArtBtn botIcon fas fa-edit"></i>
                 </div>}
             </div>
         </div>

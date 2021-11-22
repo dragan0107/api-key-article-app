@@ -8,6 +8,7 @@ import { Context } from '../../Context/Context';
 import Pagination from '../../Components/Pagination/Pagination';
 import { ReadingModal } from '../../Components/ReadingModal/ReadingModal';
 import { ConfirmDelete } from '../../Components/ConfirmDelete/ConfirmDelete'
+import UpdateArtModal from '../../Components/updateArtModal.jsx/UpdateArtModal'
 
 
 export default function Articles({articles}) {
@@ -25,6 +26,7 @@ export default function Articles({articles}) {
     const [articleId, setArticleId] = useState('');
     const [readArt, setReadArt] = useState();
     const [confirmDel, setConfirmDel] = useState(false);
+    const [showUpdateMod, setShowUpdateMod] = useState(false);
     
     const location = useLocation().search;
     const key = new URLSearchParams(location);
@@ -63,15 +65,32 @@ export default function Articles({articles}) {
         <div className="fullSection">
 
         <div className="articles">
-            {apiKeyError && <h1 className="apiKeyErrorMsg">You have no access to this page, without valid API Key!</h1>}    
+
+            {/* If the APIKey passed in the query is invalid, it will show this error header. */}
+            {apiKeyError && <h1 className="apiKeyErrorMsg">You have no access to this page, without valid API Key!</h1>}
+
+            {/* Pagination component automatically calculating and updating the number of pages. */}
              <div className="pageSelectors">
                 <Pagination postsPerPage={postsPerPage} totalPosts={arts.length} setPage={setCurrentPage}/>
             </div>
+            
+            {/* If its not loading, it will start rendering all the article cards on the page */}
             {loading ? <img className="loadingImg "src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-26.jpg" alt="" /> 
             : currentPosts.map((el, idx) => <SingleArt key={idx} article={el} 
-            setShowComment={setShowComment} setArticleId={setArticleId} setShowReadingModal={setShowReadingModal} setReadArt={setReadArt}  setConfirmDel={setConfirmDel}/> )}
+            setShowComment={setShowComment} setArticleId={setArticleId} setShowReadingModal={setShowReadingModal} setReadArt={setReadArt}  setConfirmDel={setConfirmDel}
+            setShowUpdateMod={setShowUpdateMod}
+            /> )}
+
+            {/* Toggle for Updating article modal. */}
+            {showUpdateMod && <UpdateArtModal setShowUpdateMod={setShowUpdateMod} readArt={readArt} setPostedComm={setPostedComm}/>}
+
+            {/* Toggle for showing comment modal.. */}
             {showComment && <CommentModal setShowComment={setShowComment} articleId={articleId} setPostedComm={setPostedComm}/>}
+
+            {/* Toggle for showing Reading modal.. */}
             {showReadingModal && <ReadingModal readArt={readArt} setShowReadingModal={setShowReadingModal}/>}
+
+            {/* Toggle for showing deletion confirmation modal.. */}
             {confirmDel && <ConfirmDelete setConfirmDel={setConfirmDel} articleId={articleId} setArticleId={setArticleId}
                 postedComm={postedComm} setPostedComm={setPostedComm}
             />}
