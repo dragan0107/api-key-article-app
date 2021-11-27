@@ -27,8 +27,20 @@ npm start
 
 - Then you can login with username: 'drip' , password: 'drip', or register your own account.
 
-### Screenshots
+## Screenshots
+
+### On the homepage, users can create a new API key or add a new article.
 ![image](https://user-images.githubusercontent.com/73792907/143687255-fd8593f7-c53c-4cc8-a66c-3c1518b8b363.png)
+
+### Pagination automatically adjusts depending on the amount of posts we have.
 ![image](https://user-images.githubusercontent.com/73792907/143687286-55e7128b-1957-4b81-b163-1327425bed82.png)
+
+### Users can only update or delete the posts they created themselves.
 ![image](https://user-images.githubusercontent.com/73792907/143687303-699371e0-96dc-423a-863e-8bc12fcd295f.png)
+
 ![image](https://user-images.githubusercontent.com/73792907/143687310-977aec31-88c3-440f-a093-b509da4ede36.png)
+
+### It will query with each input change if the username is taken or not and let the client know.
+![image](https://user-images.githubusercontent.com/73792907/143688179-8edb5045-b573-4419-971e-df0aeb28f96f.png)
+
+![image](https://user-images.githubusercontent.com/73792907/143688192-0eb77061-2957-494b-8f50-f8f8347fc5cd.png)
