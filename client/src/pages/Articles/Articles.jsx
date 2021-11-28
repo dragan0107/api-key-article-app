@@ -13,7 +13,7 @@ import UpdateArtModal from '../../Components/updateArtModal.jsx/UpdateArtModal'
 
 export default function Articles({articles}) {
 
-    const {user} = useContext(Context);
+    const {user, isFetching} = useContext(Context);
 
     const [arts, setArts] = useState([]); //All articles from DB.
     const [loading, setLoading] = useState(false);
@@ -22,9 +22,9 @@ export default function Articles({articles}) {
     const [apiKeyError, setApiKeyError] = useState(false);
     const [showComment, setShowComment] = useState(false);
     const [postedComm, setPostedComm] = useState(false);
-    const [showReadingModal, setShowReadingModal] = useState(false);
+    const [showReadingModal, setShowReadingModal] = useState(false); // Reading modal state
     const [articleId, setArticleId] = useState('');
-    const [readArt, setReadArt] = useState();
+    const [readArt, setReadArt] = useState(); // State for modal for reading articles 
     const [confirmDel, setConfirmDel] = useState(false);
     const [showUpdateMod, setShowUpdateMod] = useState(false);
     
@@ -34,9 +34,9 @@ export default function Articles({articles}) {
     //We are extracting the apikey from the request URL looking something like '/public/articles?apikey=10209124912804'
 
     const url = `getArticles?apikey=${apiKey}`;
+    
 
     useEffect(()=> {
-
         const getArticles = async () => {
             setLoading(true);
             setApiKeyError(false);
@@ -55,7 +55,8 @@ export default function Articles({articles}) {
             }
         }
         getArticles();
-    },[postedComm])    
+
+    },[postedComm]);    
     //Calculating the range of current posts to display.
     const idxOfLastPost = currentPage * postsPerPage;
     const idxOfFirstPost = idxOfLastPost - postsPerPage;

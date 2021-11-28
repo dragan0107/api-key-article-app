@@ -9,6 +9,14 @@
     background-color: rgb(83, 81, 82);
 }
 
+.logoIcon {
+    font-size: 30px;
+}
+
+.appBrand {
+    font-size: 23px;
+}
+
 .logout {
     cursor: pointer;
     margin-right: 60px;

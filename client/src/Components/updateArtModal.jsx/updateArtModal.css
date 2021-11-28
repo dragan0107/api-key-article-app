@@ -9,7 +9,7 @@
     /* opacity: 40%; */
 }
 
-form {
+.updateForm {
     text-align: center;
 }
 
@@ -23,9 +23,9 @@ form {
     /* align-content: center; */
     justify-content: center;
     height: 620px;
-    width: 520px;
+    width: 460px;
     background-color: rgb(214, 209, 209);
-    padding: 5%;
+    padding: 4%;
     border-radius: 20px;
     position: relative;
 }
@@ -70,13 +70,13 @@ label {
     color: red
 }
 
-.addButton {
+.submitChangesBtn {
     position: absolute;
     bottom: 1.8%;
-    left: 38%;
+    left: 33%;
 }
 
-.addButton:disabled {
+.submitChangesBtn:disabled {
     cursor: not-allowed;
 }
 
@@ -85,11 +85,12 @@ label {
     margin-bottom: 5px;
 }
 
-.submittedMsg {
-    color: rgba(8, 178, 245, 0.959);
+.updateSubmittedMsg {
+    color: rgba(85, 189, 221, 0.959);
     font-size: 16px;
     font-weight: 600;
     position: absolute;
+    width: 100%;
     bottom: 47px;
-    left: 150px;
+    left: 115px;
 }

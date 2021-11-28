@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 const INITIAL_STATE = {
-    user: null,
+    user: localStorage.getItem('user') || null,
     isFetching: false,
     error: false
 }
@@ -19,10 +19,10 @@ export const ContextProvider = ({ children }) => {
     useEffect(()=> {
         
         const getUser = async()=> {
-
+            
             const jwt = localStorage.getItem('jwt');
             if (jwt) {
-
+                
                 try {
                     dispatch({type: "LOGIN_START"})
                     let res = await axios.post('/tokenCheck',{
@@ -33,6 +33,7 @@ export const ContextProvider = ({ children }) => {
                 } catch (err) {
                     dispatch({type: "LOGIN_FAILURE"})
                     localStorage.removeItem('jwt');
+                    localStorage.removeItem('user');
                 }
             } 
         }

@@ -48,24 +48,24 @@ export default function Article_modal({setShowArt}) {
 
     return (
         <div className="modalBackground">
+            <div className="addArtModal">
+            <h3>Add new article.</h3>
+            <div className="addCloseIcon" onClick={()=>setShowArt(false)}><i class="fas fa-times"></i>
+            </div>
+                <div className="wrap">
+                    <form action="" onSubmit={handleSubmit}>
 
-        <div className="artModal">
-        <h3>Add new article.</h3>
-        <div className="closeIcon" onClick={()=>setShowArt(false)}><i class="fas fa-times"></i></div>
-        <div className="wrap">
-        <form action="" onSubmit={handleSubmit}>
-
-            <label htmlFor="">Title</label>
-            <input type="text" className="titleInput" onChange={(e)=> setTitle(e.target.value)} maxLength="50"/>
-            <label htmlFor="">Subtitle</label>
-            <textarea className="subtitleInput" name="" id="" cols="30" rows="9" onChange={(e)=> setSubtitle(e.target.value)}></textarea>
-            <label className="imgLabel" htmlFor="">Upload Image.</label>
-            <input type="file" className="fileInput" onChange={handleChange}/> 
-            {sent && <label className="submittedMsg" htmlFor="">Successfully submitted!</label> }
-            <button className="" type="submit" disabled={loading ? true : false}class="addButton btn btn-success">Submit article.</button>
-        </form>
-        </div>
-        </div>
+                        <label htmlFor="">Title</label>
+                        <input type="text" className="titleInput" onChange={(e)=> setTitle(e.target.value)} maxLength="50"/>
+                        <label htmlFor="">Subtitle</label>
+                        <textarea className="subtitleInput" name="" id="" cols="30" rows="9" onChange={(e)=> setSubtitle(e.target.value)}></textarea>
+                        <label className="imgLabel" htmlFor="">Upload Image.</label>
+                        <input type="file" className="fileInput" onChange={handleChange}/> 
+                        {sent && <label className="submittedMsg" htmlFor="">Successfully added a new article!</label> }
+                        <button className="" type="submit" disabled={loading ? true : false}class="addButton btn btn-success">Submit article.</button>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }

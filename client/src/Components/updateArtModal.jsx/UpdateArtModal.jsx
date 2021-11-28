@@ -62,7 +62,7 @@ export default function UpdateArtModal({setShowUpdateMod, readArt, setPostedComm
         <h3 className="titleHeader">Update this Article <i className="fas fa-edit"></i></h3>
         <div className="closeIcon" onClick={()=> setShowUpdateMod(false)}><i class="fas fa-times"></i></div>
         <div className="wrap">
-        <form action="" onSubmit={handleSubmit}>
+        <form className="updateForm" action="" onSubmit={handleSubmit}>
 
             <label htmlFor="">Title</label>
             <input type="text" className="titleInput" onChange={(e)=> setTitle(e.target.value)} maxLength="50" value={title}/>
@@ -70,8 +70,8 @@ export default function UpdateArtModal({setShowUpdateMod, readArt, setPostedComm
             <textarea className="subtitleInput" name="" id="" cols="30" rows="9" onChange={(e)=> setSubtitle(e.target.value)} value={subtitle}></textarea>
             <label className="imgLabel" htmlFor="">Upload Image.</label>
             <input type="file" className="fileInput" onChange={handleChange}/> 
-            {sent && <label className="submittedMsg" htmlFor="">Successfully submitted!</label> }
-            <button className="" type="submit" disabled={loading ? true : false}class="addButton btn btn-success">Submit article.</button>
+            {sent && <label className="updateSubmittedMsg" htmlFor="">Changes submitted!</label> }
+            <button type="submit" disabled={loading ? true : false}class="submitChangesBtn btn btn-success">Submit changes.</button>
         </form>
         </div>
         </div>

@@ -25,7 +25,9 @@ const createSendToken = (user, res) => {
 
     res.status(200).json({
         status: "success",
-        data: user,
+        data: {
+            username: user.username
+        },
         jwt: token
     });
 }
@@ -51,12 +53,10 @@ exports.tokenCheck = async(req, res) => {
         try {
             const user = await User.findById(token.id);
 
-            user._id = null;
-            user.password = null;
-            user.email = null;
-
             return res.status(200).json({
-                foundUser: user
+                foundUser: {
+                    username: user.username
+                }
             })
 
         } catch (err) {
@@ -65,7 +65,7 @@ exports.tokenCheck = async(req, res) => {
             })
         }
     } else {
-        res.status(401).json({
+        return res.status(401).json({
             message: 'User session has expired, please login in again!'
         })
     }

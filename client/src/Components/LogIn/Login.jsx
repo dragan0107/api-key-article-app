@@ -27,8 +27,7 @@ export default function Login() {
             });
             dispatch({type: "LOGIN_SUCCESS", payload: res.data.data});
             localStorage.setItem('jwt', res.data.jwt);
-            console.log(res);
-            
+            localStorage.setItem('user', res.data.data.username);
         } catch(err) {
             dispatch({type: "LOGIN_FAILURE"});
         }

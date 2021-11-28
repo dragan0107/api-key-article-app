@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { userRegister, tokenCheck, userLogin, getUser } = require('../controllers/authController');
-const { apiKeyGenerator, getApiKeys, deleteKey, verifyAPI } = require('../controllers/api_keyController');
+const { apiKeyGenerator, getApiKeys, deleteKey, verifyAPI } = require('../controllers/apiKeyController');
 const { addArticle, getAllArticles, commentArticle, deleteArticle, updateArticle } = require('../controllers/articleController');
 
 //User routes.

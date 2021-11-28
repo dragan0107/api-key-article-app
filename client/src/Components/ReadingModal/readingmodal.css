@@ -24,24 +24,39 @@
 }
 
 .readingTitle {
-    margin-top: 15px;
-    font-size: 25px;
+    /* margin-top: 15px; */
+    font-size: 30px;
     text-align: center;
-    position: relative;
-    top: -65px;
+    position: absolute;
+    width: 90%;
+    top: 20px;
+    border-bottom: 1px solid rgb(214, 213, 213);
     /* left: 40%; */
 }
 
 .readingSubtitle {
-    /* position: static; */
-    top: -4%;
-    max-height: 50%;
-    /* bottom: 0%; */
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-top: 0;
     overflow: auto;
+    max-height: 100%;
 }
 
 .commentList {
+    position: relative;
+    /* bottom: 25px; */
+    /* left: 40%; */
     list-style-type: none;
+    overflow: auto;
+    max-height: 30%;
+    width: 90%;
+}
+
+.titleSubtitle {
+    /* padding: 0 10px; */
+    position: relative;
+    max-height: 60%;
+    /* background-color: rgb(231, 229, 229); */
 }
 
 .readingComments {
@@ -58,9 +73,10 @@
 .closeReadingBox {
     position: absolute;
     top: 15px;
-    right: 18px;
+    right: 24px;
     font-size: 25px;
     cursor: pointer;
+    z-index: 5;
 }
 
 .closeReadingBox:hover {

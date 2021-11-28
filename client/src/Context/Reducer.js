@@ -19,6 +19,7 @@ const Reducer = (state, action) => {
                 error: true
             };
         case "LOGOUT":
+            localStorage.removeItem('user');
             return {
                 user: null,
                 isFetching: false,
