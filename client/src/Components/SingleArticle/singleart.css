@@ -62,7 +62,7 @@
     border-radius: 12px;
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    left: 140px;
 }
 
 .editDelete {
@@ -86,4 +86,39 @@
 
 .editArtBtn:hover {
     color: rgba(172, 255, 47, 0.829)
+}
+
+.like-dislike {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 21px;
+}
+.like-dislike>i>span {
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+.like--btn {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.dislike--btn {
+    cursor: pointer;
+}
+
+.like--btn:hover {
+    color: rgb(66, 66, 240);
+}
+
+.liked {
+    color: rgb(66, 66, 240);
+}
+.disliked {
+    color: rgb(238, 69, 69)
+}
+
+.dislike--btn:hover{
+    color: rgb(238, 69, 69)
 }
