@@ -16,7 +16,6 @@ export default function SingleArt({
   const { user } = useContext(Context);
   const [likes, setLikes] = useState(article.likes.length);
   const [dislikes, setDislikes] = useState(article.dislikes.length);
-  const [reacted, setReacted] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
 
@@ -64,11 +63,9 @@ export default function SingleArt({
       if (username) {
         if (article.likes.includes(username)) {
           setIsLiked(true);
-          setReacted(true);
           console.log(isLiked);
         } else if (article.dislikes.includes(username)) {
           setIsDisliked(true);
-          setReacted(true);
         }
       }
     };
@@ -91,6 +88,7 @@ export default function SingleArt({
         alt="..."
       />
       <div className="card-body">
+        <span className="authorTag">author: {article.author}</span>
         <h5
           className="card-title"
           onClick={() => {
@@ -103,7 +101,11 @@ export default function SingleArt({
         <p className="card-text">{article.subtitle}</p>
         <div className="like-dislike">
           <i
-            class={'like--btn fas fa-thumbs-up ' + (isLiked ? 'liked' : '')}
+            class={
+              'like--btn fas fa-thumbs-up ' +
+              (isLiked ? 'liked' : '') +
+              (!user ? 'disabled' : '')
+            }
             onClick={handleLike}
           >
             <span className="like--number">{likes}</span>{' '}
@@ -111,7 +113,8 @@ export default function SingleArt({
           <i
             class={
               'dislike--btn fas fa-thumbs-down ' +
-              (isDisliked ? 'disliked' : '')
+              (isDisliked ? 'disliked' : '') +
+              (!user ? 'disabled' : '')
             }
             onClick={handleDislike}
           >
