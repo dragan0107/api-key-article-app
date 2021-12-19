@@ -33,8 +33,10 @@ npm start
 ### On the homepage, users can create a new API key or add a new article.
 ![image](https://user-images.githubusercontent.com/73792907/143687255-fd8593f7-c53c-4cc8-a66c-3c1518b8b363.png)
 
+![Screenshot_2](https://user-images.githubusercontent.com/73792907/146692822-6cf126b2-6a1a-4bb5-9f98-f16bb99e6dfa.jpg)
+
 ### Client accessing the app with a provided API Key can read and comment each article.
-![Screenshot_6](https://user-images.githubusercontent.com/73792907/143777242-fc9379ea-1e0f-4265-becb-e095d1285d8f.jpg)
+![Screenshot_3](https://user-images.githubusercontent.com/73792907/146692891-0dcb9a54-fdf1-4119-83e0-1fb3638398e8.jpg)
 
 ### Pagination automatically adjusts depending on the amount of posts we have.
 ![image](https://user-images.githubusercontent.com/73792907/143687286-55e7128b-1957-4b81-b163-1327425bed82.png)
