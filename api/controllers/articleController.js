@@ -75,23 +75,28 @@ exports.updateArticle = async (req, res) => {
 exports.likeArticle = async (req, res) => {
   try {
     const art = await Article.findById(req.params.id);
+    console.log(art);
     if (!art.likes.includes(req.body.user)) {
       //if no likes, it will add one
 
       if (art.dislikes.includes(req.body.user)) {
         // If there was a dislike by this user before, we remove it so we add the like
         await art.updateOne({ $pull: { dislikes: req.body.user } });
+        art.dislikes.length -= 1;
       }
 
       await art.updateOne({ $push: { likes: req.body.user } });
       res.status(200).json({
         msg: 'post has been liked',
+        numOfLikes: art.likes.length + 1,
+        numOfDislikes: art.dislikes.length,
       });
     } else {
       //if there is a like already, it takes it away
       await art.updateOne({ $pull: { likes: req.body.user } });
       res.status(200).json({
         msg: 'post has been unliked',
+        numOfLikes: art.likes.length - 1,
       });
     }
   } catch (error) {
@@ -109,16 +114,20 @@ exports.dislikeArticle = async (req, res) => {
         // If there was a like by this user before, we remove it so we add the dislike
 
         await art.updateOne({ $pull: { likes: req.body.user } });
+        art.likes.length -= 1;
       }
 
       await art.updateOne({ $push: { dislikes: req.body.user } });
       res.status(200).json({
         msg: 'post has been disliked',
+        numOfDislikes: art.dislikes.length + 1,
+        numOfLikes: art.likes.length,
       });
     } else {
       await art.updateOne({ $pull: { dislikes: req.body.user } });
       res.status(200).json({
         msg: 'dislike has been removed',
+        numOfDislikes: art.dislikes.length - 1,
       });
     }
   } catch (error) {

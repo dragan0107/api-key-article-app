@@ -22,17 +22,20 @@ export default function SingleArt({
   const handleLike = async () => {
     try {
       if (!isLiked) {
-        if (isDisliked) setDislikes((prevValue) => (prevValue -= 1));
+        // if (isDisliked) setDislikes((prevValue) => (prevValue -= 1));
         setIsLiked(true);
-        setLikes((prevValue) => (prevValue += 1));
+        // setLikes((prevValue) => (prevValue += 1));
         setIsDisliked(false);
       } else {
         setIsLiked(false);
-        setLikes((prevValue) => (prevValue -= 1));
+        // setLikes((prevValue) => (prevValue -= 1));
       }
-      await axios.put(`${article._id}/like`, {
+      const res = await axios.put(`${article._id}/like`, {
         user: user.username,
       });
+      console.log(res.data.numOfLikes);
+      setLikes(res.data.numOfLikes);
+      setDislikes(res.data.numOfDislikes);
     } catch (error) {
       console.log(error);
     }
@@ -41,17 +44,19 @@ export default function SingleArt({
   const handleDislike = async () => {
     try {
       if (!isDisliked) {
-        if (isLiked) setLikes((prevValue) => (prevValue -= 1));
+        // if (isLiked) setLikes((prevValue) => (prevValue -= 1));
         setIsDisliked(true);
-        setDislikes((prevValue) => (prevValue += 1));
+        // setDislikes((prevValue) => (prevValue += 1));
         setIsLiked(false);
       } else {
         setIsDisliked(false);
-        setDislikes((prevValue) => (prevValue -= 1));
+        // setDislikes((prevValue) => (prevValue -= 1));
       }
-      await axios.put(`${article._id}/dislike`, {
+      const res = await axios.put(`${article._id}/dislike`, {
         user: user.username,
       });
+      setDislikes(res.data.numOfDislikes);
+      setLikes(res.data.numOfLikes);
     } catch (error) {
       console.log(error);
     }
