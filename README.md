@@ -19,11 +19,15 @@
 
 -   Go both into 'api' and 'client' folders and run
 
-`npm install`
+```
+npm install
+```
 
 -   After that, run the following command both for api and client:
 
-`npm start`
+```
+npm start
+```
 
 -   If there is any errors for installing client dependencies, try to use --force to fix it..
 
